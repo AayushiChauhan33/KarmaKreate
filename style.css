@@ -1,0 +1,122 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.background img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    animation: scroll 30s linear infinite;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+#yo {
+    max-width: 300px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+.login-form {
+    margin: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+}
+
+
+button[type="submit"] {
+    background-color: #fff;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+    border-radius: 5px; /* added border-radius to make the button rounded */
+    background-image: linear-gradient(to right, #a1c4fd 0%, #c2e9fb 51%, #a1c4fd 100%);
+    background-size: 200% auto;
+    background-position: left top;
+    border-color: transparent;
+    color: #464646;
+    
+}
+
+button[type="submit"]::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    
+    animation: moveTop 2s linear infinite;
+}
+
+button[type="submit"]::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    
+    animation: moveBottom 2s linear infinite;
+    animation-delay: 0.5s;
+}
+
+
+
+button[type="submit"]:hover {
+    background-position: right bottom;
+    background-position-x: right;
+    background-position-y: bottom;
+    color: #000;
+}
+
+button[type="submit"]:active {
+    transform: scale(0.95);
+    background-color: #4CAF50; /* You can choose any color you prefer here */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Adjust shadow for click effect */
+    transition: background-color 0.2s ease-in, transform 0.1s ease-in;
+}
+
+button[type="submit"]:active::before, 
+button[type="submit"]:active::after {
+    animation: none; /* Stop the animation when button is clicked */
+}
